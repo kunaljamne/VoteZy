@@ -1,0 +1,15 @@
+package in.scalive.votezy.dto;
+
+import java.util.List;
+
+import in.scalive.votezy.entity.Vote;
+import lombok.Data;
+
+@Data
+public class ElectionResultResponseDTO {
+
+	private String electionName;
+	private int totalVotes;
+	private Long winnerId;
+	private Long winnerVotes;
+}

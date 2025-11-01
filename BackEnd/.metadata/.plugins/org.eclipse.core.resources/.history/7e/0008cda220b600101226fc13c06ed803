@@ -1,0 +1,10 @@
+package in.scalive.votezy.service;
+
+import org.springframework.stereotype.Service;
+
+import in.scalive.votezy.entity.Vote;
+
+@Service
+public class ElectionResultService {
+	private Vote vote;
+}

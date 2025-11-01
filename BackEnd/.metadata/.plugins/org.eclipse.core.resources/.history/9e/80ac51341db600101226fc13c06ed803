@@ -1,0 +1,14 @@
+package in.scalive.votezy.dto;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+public class ElectionResultResponseDTO {
+
+	private String electionName;
+	private Long totalVotes;
+	private Long winnerId;
+	private Long winnerVotes;
+}
