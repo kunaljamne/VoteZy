@@ -1,16 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="java.lang.RuntimeException"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.ControllerAdvice"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.ExceptionHandler"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.MethodArgumentNotValidException"/>
-    <fullyQualifiedTypeName name="java.util.HashMap"/>
-    <fullyQualifiedTypeName name="org.springframework.validation.BindingResult"/>
-    <fullyQualifiedTypeName name="org.springframework.validation.FieldError"/>
-    <fullyQualifiedTypeName name="in.scalive.votezy.exception.ErrorResponse"/>
-    <fullyQualifiedTypeName name="java.util.Map"/>
-    <fullyQualifiedTypeName name="java.lang.Exception"/>
-    <fullyQualifiedTypeName name="in.scalive.votezy.exception.DuplicateResourceException"/>
     <fullyQualifiedTypeName name="java.net.http.HttpClient"/>
     <fullyQualifiedTypeName name="java.awt.List"/>
     <fullyQualifiedTypeName name="in.scalive.votezy.service.VoterService"/>
@@ -20,12 +9,8 @@
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.DeleteMapping"/>
     <fullyQualifiedTypeName name="in.scalive.votezy.dto.CandidateUpdateDTO"/>
-    <fullyQualifiedTypeName name="lombok.NoArgsConstructor"/>
-    <fullyQualifiedTypeName name="lombok.AllArgsConstructor"/>
     <fullyQualifiedTypeName name="jakarta.validation.constraints.NotNull"/>
     <fullyQualifiedTypeName name="in.scalive.votezy.repository.VoterRepository"/>
-    <fullyQualifiedTypeName name="in.scalive.votezy.entity.Voter"/>
-    <fullyQualifiedTypeName name="in.scalive.votezy.entity.Candidate"/>
     <fullyQualifiedTypeName name="in.scalive.votezy.exception.VoteNotAllowedException"/>
     <fullyQualifiedTypeName name="jakarta.transaction.Transactional"/>
     <fullyQualifiedTypeName name="in.scalive.votezy.service.VoteService"/>
@@ -37,10 +22,8 @@
     <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
     <fullyQualifiedTypeName name="in.scalive.votezy.entity.Vote"/>
     <fullyQualifiedTypeName name="jakarta.validation.constraints.NotBlank"/>
-    <fullyQualifiedTypeName name="lombok.Data"/>
     <fullyQualifiedTypeName name="in.scalive.votezy.repository.ElectionResultRepository"/>
     <fullyQualifiedTypeName name="in.scalive.votezy.repository.VoteRepository"/>
-    <fullyQualifiedTypeName name="java.lang.String"/>
     <fullyQualifiedTypeName name="java.util.Optional"/>
     <fullyQualifiedTypeName name="in.scalive.votezy.exception.ResourceNotFoundException"/>
     <fullyQualifiedTypeName name="in.scalive.votezy.repository.CandidateRepository"/>
@@ -57,7 +40,24 @@
     <fullyQualifiedTypeName name="in.scalive.votezy.dto.ElectionResultRequestDTO"/>
     <fullyQualifiedTypeName name="in.scalive.votezy.dto.ElectionResultResponseDTO"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
-    <fullyQualifiedTypeName name="org.springframework.http.ResponseEntity"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
+    <fullyQualifiedTypeName name="java.lang.String"/>
+    <fullyQualifiedTypeName name="java.lang.Boolean"/>
+    <fullyQualifiedTypeName name="lombok.NoArgsConstructor"/>
+    <fullyQualifiedTypeName name="lombok.AllArgsConstructor"/>
+    <fullyQualifiedTypeName name="in.scalive.votezy.dto.VoterRequestDTO"/>
+    <fullyQualifiedTypeName name="org.modelmapper.ModelMapper"/>
+    <fullyQualifiedTypeName name="in.scalive.votezy.entity.Voter"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="org.hibernate.id.ResultSetIdentifierConsumer"/>
+    <fullyQualifiedTypeName name="org.springframework.http.ResponseEntity"/>
+    <fullyQualifiedTypeName name="in.scalive.votezy.dto.VoterUpdateDTO"/>
+    <fullyQualifiedTypeName name="jakarta.validation.constraints.Email"/>
+    <fullyQualifiedTypeName name="in.scalive.votezy.dto.VoterResponseDTO"/>
+    <fullyQualifiedTypeName name="lombok.Data"/>
+    <fullyQualifiedTypeName name="lombok.RequiredArgsConstructor"/>
+    <fullyQualifiedTypeName name="in.scalive.votezy.dto.CandidateResponseDTO"/>
+    <fullyQualifiedTypeName name="in.scalive.votezy.dto.CandidateRequestDTO"/>
+    <fullyQualifiedTypeName name="in.scalive.votezy.mapper.CandidateMapper"/>
+    <fullyQualifiedTypeName name="in.scalive.votezy.entity.Candidate"/>
 </qualifiedTypeNameHistroy>

@@ -10,7 +10,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
-import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
 @Entity
@@ -21,16 +20,15 @@ public class Candidate {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@NotBlank(message = "Name is required")
 	private String name;
 
-	@NotBlank(message = "Party is required")
 	private String party;
-	
+
 	private int voteCount = 0;
 
 	@JsonIgnore
-	@OneToMany(mappedBy = "candidate", cascade = CascadeType.ALL)//orphanRemoval=true kr skte the ham agar hamri vote table ki voter se relationship nhi hota to 
+	@OneToMany(mappedBy = "candidate", cascade = CascadeType.ALL) // orphanRemoval=true kr skte the ham agar hamri vote
+																	// table ki voter se relationship nhi hota to
 	private List<Vote> vote;
 
 }

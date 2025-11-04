@@ -2,65 +2,80 @@ package in.scalive.votezy.service;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import in.scalive.votezy.dto.VoterRequestDTO;
+import in.scalive.votezy.dto.VoterResponseDTO;
+import in.scalive.votezy.dto.VoterUpdateDTO;
 import in.scalive.votezy.entity.Candidate;
 import in.scalive.votezy.entity.Vote;
 import in.scalive.votezy.entity.Voter;
 import in.scalive.votezy.exception.DuplicateResourceException;
 import in.scalive.votezy.exception.ResourceNotFoundException;
+import in.scalive.votezy.mapper.VoterMapper;
 import in.scalive.votezy.repository.CandidateRepository;
 import in.scalive.votezy.repository.VoterRepository;
 import jakarta.transaction.Transactional;
+import lombok.RequiredArgsConstructor;
 
 @Service
+@RequiredArgsConstructor
 public class VoterService {
 
-	private VoterRepository voterRepository;
-	private CandidateRepository candidateRepository;
+	private final VoterRepository voterRepository;
+	private final CandidateRepository candidateRepository;
+	private final VoterMapper voterMapper;
 
-	@Autowired
-	public VoterService(VoterRepository voterRepository, CandidateRepository candidateRepository) {
-		this.voterRepository = voterRepository;
-		this.candidateRepository = candidateRepository;
-	}
-
-	public Voter registerVoter(Voter voter) {
-		if (voterRepository.existsByEmail(voter.getEmail())) {
-			throw new DuplicateResourceException("Voter with email id: " + voter.getEmail() + " Already exists");
+	public VoterResponseDTO registerVoter(VoterRequestDTO voterRequest) {
+		if (voterRepository.existsByEmail(voterRequest.getEmail())) {
+			throw new DuplicateResourceException("Voter with email id: " + voterRequest.getEmail() + " Already exists");
 		}
+		// ✅ DTO → Entity
+		Voter voter = voterMapper.toEntity(voterRequest);
 
-		return voterRepository.save(voter);
+		voterRepository.save(voter);
+
+		// ✅ Entity → DTO
+		return voterMapper.toResponseDTO(voter);
 	}
 
-	public List<Voter> getAllVoter() {
-		return voterRepository.findAll();
+	public List<VoterResponseDTO> getAllVoter() {
+		return voterMapper.toResponseDTOList(voterRepository.findAll());
 	}
 
-	public Voter getVoterById(Long id) {
+	public VoterResponseDTO getVoterById(Long id) {
 		Voter voter = voterRepository.findById(id).orElse(null);
 		if (voter == null) {
 			throw new ResourceNotFoundException("Voter with id: " + id + " Not found");
 
 		}
-		return voter;
+		return voterMapper.toResponseDTO(voter);
 	}
 
-	public Voter updateVoter(Long id, Voter updateVoter) {
+	public VoterResponseDTO updateVoter(Long id, VoterUpdateDTO updateDTO) {
 		Voter voter = voterRepository.findById(id).orElse(null);
 		if (voter == null) {
 			throw new ResourceNotFoundException("Voter with id :" + id + "not found");
 		}
-		if (updateVoter.getName() != null) {
+//		if (updateVoter.getName() != null) {
+//
+//			voter.setName(updateVoter.getName());
+//		}
+//		if (updateVoter.getEmail() != null) {
+//
+//			voter.setEmail(updateVoter.getEmail());
+//		}
+//		return voterRepository.save(voter);
 
-			voter.setName(updateVoter.getName());
+		if (updateDTO.getName() != null && !updateDTO.getName().isEmpty()) {
+			voter.setName(updateDTO.getName());
 		}
-		if (updateVoter.getEmail() != null) {
+		if (updateDTO.getEmail() != null && !updateDTO.getEmail().isEmpty()) {
+			voter.setEmail(updateDTO.getEmail());
+		}
 
-			voter.setEmail(updateVoter.getEmail());
-		}
-		return voterRepository.save(voter);
+		Voter updatedVoter = voterRepository.save(voter);
+		return voterMapper.toResponseDTO(updatedVoter);
 	}
 
 	@Transactional

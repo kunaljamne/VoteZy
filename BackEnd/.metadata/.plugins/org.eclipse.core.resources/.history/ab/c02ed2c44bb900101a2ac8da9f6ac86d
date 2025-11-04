@@ -1,0 +1,62 @@
+package in.scalive.votezy.service;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import in.scalive.votezy.dto.CandidateUpdateDTO;
+import in.scalive.votezy.entity.Candidate;
+import in.scalive.votezy.entity.Vote;
+import in.scalive.votezy.exception.ResourceNotFoundException;
+import in.scalive.votezy.repository.CandidateRepository;
+import lombok.RequiredArgsConstructor;
+
+@Service
+@RequiredArgsConstructor
+public class CandidateService {
+
+	private final CandidateRepository candidateRepository;
+
+	public Candidate addCandidate(Candidate candidate) {
+		return candidateRepository.save(candidate);
+	}
+
+	public List<Candidate> getAllCandidates() {
+		return candidateRepository.findAll();
+	}
+
+	public Candidate getCandidateById(Long id) {
+		Candidate candidate = candidateRepository.findById(id).orElse(null);
+		if (candidate == null) {
+			throw new ResourceNotFoundException("Candidate with id: " + id + " not found");
+		}
+		return candidate;
+	}
+
+	public Candidate updateCandidate(Long id, CandidateUpdateDTO candidateDTO) {
+		Candidate candidate = getCandidateById(id);
+
+		if (candidateDTO.getName() == null && candidateDTO.getParty() == null) {
+			throw new RuntimeException("Empty Object not allowed for updation");
+		}
+
+		if (candidateDTO.getName() != null) {
+			candidate.setName(candidateDTO.getName());
+		}
+
+		if (candidateDTO.getParty() != null) {
+			candidate.setParty(candidateDTO.getParty());
+		}
+		return candidateRepository.save(candidate);
+	}
+
+	public void deleteCandidate(Long id) {
+		Candidate candidate = getCandidateById(id);
+		List<Vote> votes = candidate.getVote();
+		for (Vote v : votes) {
+			v.setCandidate(null);
+		}
+		candidate.getVote().clear();
+		candidateRepository.delete(candidate);
+	}
+}

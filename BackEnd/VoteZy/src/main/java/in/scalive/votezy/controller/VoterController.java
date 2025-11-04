@@ -15,6 +15,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import in.scalive.votezy.dto.VoterRequestDTO;
+import in.scalive.votezy.dto.VoterResponseDTO;
+import in.scalive.votezy.dto.VoterUpdateDTO;
 import in.scalive.votezy.entity.Voter;
 import in.scalive.votezy.service.VoterService;
 import jakarta.validation.Valid;
@@ -30,27 +33,42 @@ public class VoterController {
 		this.voterService = voterService;
 	}
 
+	//without DTO
+//	@PostMapping("/register")
+//	public ResponseEntity<Voter> registerVoter(@RequestBody @Valid Voter voter) {
+//		Voter savedVoter = voterService.registerVoter(voter);
+//		return new ResponseEntity<>(savedVoter, HttpStatus.CREATED);
+//	}
+	
+	//with dto
 	@PostMapping("/register")
-	public ResponseEntity<Voter> registerVoter(@RequestBody @Valid Voter voter) {
-		Voter savedVoter = voterService.registerVoter(voter);
-		return new ResponseEntity<>(savedVoter, HttpStatus.CREATED);
+	public ResponseEntity<VoterResponseDTO> registerVoter(@RequestBody @Valid VoterRequestDTO voterRequest) {
+	    VoterResponseDTO savedVoter = voterService.registerVoter(voterRequest);
+	    return new ResponseEntity<>(savedVoter, HttpStatus.CREATED);
 	}
+
 
 	@GetMapping("/{id}")
-	public ResponseEntity<Voter> getVoterById(@PathVariable Long id) {
-		Voter voter = voterService.getVoterById(id);
+	public ResponseEntity<VoterResponseDTO> getVoterById(@PathVariable Long id) {
+		VoterResponseDTO voter = voterService.getVoterById(id);
 		return new ResponseEntity<>(voter, HttpStatus.OK);
 	}
+	
+//	@GetMapping("/{id}")
+//	public ResponseEntity<Voter> getVoterById(@PathVariable Long id) {
+//		Voter voter = voterService.getVoterById(id);
+//		return new ResponseEntity<>(voter, HttpStatus.OK);
+//	}
 
 	@GetMapping()
-	public ResponseEntity<List<Voter>> getAllVoter() {
-		List<Voter> allVoter = voterService.getAllVoter();
-		return new ResponseEntity<>(allVoter, HttpStatus.OK);
+	public ResponseEntity<List<VoterResponseDTO>> getAllVoter() {
+		List<VoterResponseDTO> allVoter = voterService.getAllVoter();
+		return ResponseEntity.ok(allVoter);
 	}
 
 	@PutMapping("/update/{id}")
-	public ResponseEntity<Voter> updateVoter(@PathVariable Long id,@RequestBody Voter voter){
-		Voter updaVoter=voterService.updateVoter(id, voter);
+	public ResponseEntity<VoterResponseDTO> updateVoter(@PathVariable Long id,@RequestBody VoterUpdateDTO voter){
+		VoterResponseDTO updaVoter=voterService.updateVoter(id, voter);
 		return new ResponseEntity<>(updaVoter,HttpStatus.OK);
 	}
 	

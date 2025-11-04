@@ -2,7 +2,6 @@ package in.scalive.votezy.controller;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -15,26 +14,25 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import in.scalive.votezy.dto.CandidateRequestDTO;
+import in.scalive.votezy.dto.CandidateResponseDTO;
 import in.scalive.votezy.dto.CandidateUpdateDTO;
 import in.scalive.votezy.entity.Candidate;
 import in.scalive.votezy.service.CandidateService;
 import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/api/candidates")
 @CrossOrigin
+@RequiredArgsConstructor
 public class CandidateController {
 
-	private CandidateService candidateService;
-
-	@Autowired
-	public CandidateController(CandidateService candidateService) {
-		this.candidateService = candidateService;
-	}
+	private final CandidateService candidateService;
 
 	@PostMapping("/add")
-	public ResponseEntity<Candidate> addCandidate(@Valid @RequestBody Candidate candidate) {
-		Candidate savedCandidate = candidateService.addCandidate(candidate);
+	public ResponseEntity<CandidateResponseDTO> addCandidate(@Valid @RequestBody CandidateRequestDTO candidate) {
+		CandidateResponseDTO savedCandidate = candidateService.addCandidate(candidate);
 		return new ResponseEntity<>(savedCandidate, HttpStatus.CREATED);
 	}
 

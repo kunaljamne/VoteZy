@@ -4,23 +4,27 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import in.scalive.votezy.dto.CandidateRequestDTO;
+import in.scalive.votezy.dto.CandidateResponseDTO;
 import in.scalive.votezy.dto.CandidateUpdateDTO;
 import in.scalive.votezy.entity.Candidate;
 import in.scalive.votezy.entity.Vote;
 import in.scalive.votezy.exception.ResourceNotFoundException;
+import in.scalive.votezy.mapper.CandidateMapper;
 import in.scalive.votezy.repository.CandidateRepository;
+import lombok.RequiredArgsConstructor;
 
 @Service
+@RequiredArgsConstructor
 public class CandidateService {
 
-	private CandidateRepository candidateRepository;
+	private final CandidateRepository candidateRepository;
+	private final CandidateMapper mapper;
 
-	public CandidateService(CandidateRepository candidateRepository) {
-		this.candidateRepository = candidateRepository;
-	}
-
-	public Candidate addCandidate(Candidate candidate) {
-		return candidateRepository.save(candidate);
+	public CandidateResponseDTO addCandidate(CandidateRequestDTO candidate) {
+		Candidate candidate2=mapper.toEntity(candidate);
+		candidateRepository.save(candidate2);
+		return mapper.toResponseDTO(candidate2);
 	}
 
 	public List<Candidate> getAllCandidates() {

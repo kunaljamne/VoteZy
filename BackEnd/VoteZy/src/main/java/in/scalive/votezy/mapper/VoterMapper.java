@@ -1,0 +1,22 @@
+package in.scalive.votezy.mapper;
+
+import java.util.List;
+
+import org.mapstruct.Mapper;
+
+import in.scalive.votezy.dto.VoterRequestDTO;
+import in.scalive.votezy.dto.VoterResponseDTO;
+import in.scalive.votezy.entity.Voter;
+@Mapper(componentModel = "spring")
+public interface VoterMapper {
+
+	// DTO -> Entity
+	Voter toEntity(VoterRequestDTO dto);
+
+	// Entity -> DTO
+	VoterResponseDTO toResponseDTO(Voter voter);
+
+	// List mapping
+	List<VoterResponseDTO> toResponseDTOList(List<Voter> voters);
+
+}
