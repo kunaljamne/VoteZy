@@ -37,9 +37,9 @@ public class CandidateController {
 	}
 
 	@GetMapping
-	public ResponseEntity<List<CandidateResponseDTO>> getAllCandidates() {
-		List<CandidateResponseDTO> candidatesList = this.candidateService.getAllCandidates();
-		return ResponseEntity.ok(candidatesList);
+	public ResponseEntity<List<Candidate>> getAllCandidates() {
+		List<Candidate> candidatesList = this.candidateService.getAllCandidates();
+		return new ResponseEntity<List<Candidate>>(candidatesList, HttpStatus.OK);
 	}
 
 	@GetMapping("/{id}")

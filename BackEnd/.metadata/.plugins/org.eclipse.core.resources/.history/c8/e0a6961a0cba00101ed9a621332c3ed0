@@ -16,6 +16,6 @@ public interface CandidateMapper {
 	// Entity -> DTO
 	CandidateResponseDTO toResponseDTO(Candidate candidate);
 
-	List<CandidateResponseDTO> toResponseDTOList(List<Candidate> voters);
+	List<CandidateRequestDTO> toResponseDTOList(List<Candidate> voters);
 
 }
