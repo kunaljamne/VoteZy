@@ -1,5 +1,0 @@
-package in.scalive.votezy.repository;
-
-public interface VoteRepository {
-
-}

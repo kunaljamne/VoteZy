@@ -685,3 +685,78 @@
 2025-11-04 13:28:26,786 [Worker-14: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
 2025-11-04 13:28:26,791 [Worker-14: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\OnlineVotingApplication Project SpringBoot\BackEnd\VoteZy\src\test\resources
 2025-11-04 17:35:41,851 [Worker-4: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2025-11-05 11:19:21,054 [Worker-7: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2025-11-05 11:19:58,155 [Start Help Server] INFO  org.eclipse.jetty.server.Server - jetty-12.0.16; built: 2024-12-09T21:02:54.535Z; git: c3f88bafb4e393f23204dc14dc57b042e84debc7; jvm 21.0.6+7-LTS
+2025-11-05 11:19:58,238 [Start Help Server] INFO  o.e.j.server.handler.ContextHandler - Started oeje8n.ContextHandler$CoreContextHandler@4b33bfb1{/help,/help,b=null,a=AVAILABLE,h=oeje8n.ContextHandler$CoreContextHandler$CoreToNestedHandler@744b5fb8{STARTED}}
+2025-11-05 11:19:58,239 [Start Help Server] INFO  o.e.j.s.DefaultSessionIdManager - Session workerName=node0
+2025-11-05 11:19:58,294 [Start Help Server] INFO  o.e.jetty.server.AbstractConnector - Started ServerConnector@25b10fa0{HTTP/1.1, (http/1.1)}{127.0.0.1:62086}
+2025-11-05 11:19:58,337 [Start Help Server] INFO  org.eclipse.jetty.server.Server - Started oejs.Server@f2c43b9{STARTING}[12.0.16,sto=0] @132618ms
+2025-11-05 11:26:09,616 [Worker-18: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-11-05 11:26:09,646 [Worker-18: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-11-05 11:26:09,654 [Worker-18: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\OnlineVotingApplication Project SpringBoot\BackEnd\VoteZy\src\test\resources
+2025-11-05 11:27:25,634 [Worker-19: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-11-05 11:27:25,641 [Worker-19: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-11-05 11:27:25,645 [Worker-19: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\OnlineVotingApplication Project SpringBoot\BackEnd\VoteZy\src\test\resources
+2025-11-05 11:34:23,536 [Stop Help Server] INFO  org.eclipse.jetty.server.Server - Stopped oejs.Server@f2c43b9{STOPPING}[12.0.16,sto=0]
+2025-11-05 11:34:23,548 [Stop Help Server] INFO  o.e.jetty.server.AbstractConnector - Stopped ServerConnector@25b10fa0{HTTP/1.1, (http/1.1)}{127.0.0.1:0}
+2025-11-05 19:37:20,575 [Worker-4: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2025-11-05 19:37:21,096 [Worker-4: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Updating Gradle version information cache failed. Using outdated cache.
+2025-11-05 19:38:38,361 [Start Help Server] INFO  org.eclipse.jetty.server.Server - jetty-12.0.16; built: 2024-12-09T21:02:54.535Z; git: c3f88bafb4e393f23204dc14dc57b042e84debc7; jvm 21.0.6+7-LTS
+2025-11-05 19:38:38,483 [Start Help Server] INFO  o.e.j.server.handler.ContextHandler - Started oeje8n.ContextHandler$CoreContextHandler@7448bba1{/help,/help,b=null,a=AVAILABLE,h=oeje8n.ContextHandler$CoreContextHandler$CoreToNestedHandler@70a74551{STARTED}}
+2025-11-05 19:38:38,485 [Start Help Server] INFO  o.e.j.s.DefaultSessionIdManager - Session workerName=node0
+2025-11-05 19:38:38,538 [Start Help Server] INFO  o.e.jetty.server.AbstractConnector - Started ServerConnector@3cb82b9c{HTTP/1.1, (http/1.1)}{127.0.0.1:58035}
+2025-11-05 19:38:38,571 [Start Help Server] INFO  org.eclipse.jetty.server.Server - Started oejs.Server@62b7ee20{STARTING}[12.0.16,sto=0] @191929ms
+2025-11-05 19:39:41,607 [Worker-11: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-11-05 19:39:41,635 [Worker-11: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-11-05 19:39:41,640 [Worker-11: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\OnlineVotingApplication Project SpringBoot\BackEnd\VoteZy\src\test\resources
+2025-11-05 19:41:48,435 [Worker-10: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-11-05 19:41:48,443 [Worker-10: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-11-05 19:41:48,448 [Worker-10: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\OnlineVotingApplication Project SpringBoot\BackEnd\VoteZy\src\test\resources
+2025-11-05 19:50:38,464 [Worker-7: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-11-05 19:50:38,475 [Worker-7: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-11-05 19:50:38,481 [Worker-7: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\OnlineVotingApplication Project SpringBoot\BackEnd\VoteZy\src\test\resources
+2025-11-05 19:52:55,024 [Worker-19: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-11-05 19:52:55,034 [Worker-19: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-11-05 19:52:55,038 [Worker-19: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\OnlineVotingApplication Project SpringBoot\BackEnd\VoteZy\src\test\resources
+2025-11-05 19:53:17,450 [Worker-18: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-11-05 19:53:17,457 [Worker-18: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-11-05 19:53:17,460 [Worker-18: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\OnlineVotingApplication Project SpringBoot\BackEnd\VoteZy\src\test\resources
+2025-11-05 19:59:21,482 [Worker-22: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-11-05 19:59:21,491 [Worker-22: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-11-05 19:59:21,494 [Worker-22: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\OnlineVotingApplication Project SpringBoot\BackEnd\VoteZy\src\test\resources
+2025-11-05 20:03:06,606 [Worker-23: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-11-05 20:03:06,614 [Worker-23: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-11-05 20:03:06,618 [Worker-23: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\OnlineVotingApplication Project SpringBoot\BackEnd\VoteZy\src\test\resources
+2025-11-05 20:04:38,528 [Worker-26: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-11-05 20:04:38,538 [Worker-26: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-11-05 20:04:38,542 [Worker-26: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\OnlineVotingApplication Project SpringBoot\BackEnd\VoteZy\src\test\resources
+2025-11-05 20:04:56,513 [Worker-25: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-11-05 20:04:56,519 [Worker-25: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-11-05 20:04:56,523 [Worker-25: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\OnlineVotingApplication Project SpringBoot\BackEnd\VoteZy\src\test\resources
+2025-11-05 20:07:22,789 [Worker-27: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-11-05 20:07:22,802 [Worker-27: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-11-05 20:07:22,809 [Worker-27: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\OnlineVotingApplication Project SpringBoot\BackEnd\VoteZy\src\test\resources
+2025-11-05 20:10:10,219 [Worker-23: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-11-05 20:10:10,229 [Worker-23: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-11-05 20:10:10,232 [Worker-23: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\OnlineVotingApplication Project SpringBoot\BackEnd\VoteZy\src\test\resources
+2025-11-05 20:23:41,986 [Worker-37: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-11-05 20:23:42,012 [Worker-37: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-11-05 20:23:42,016 [Worker-37: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\OnlineVotingApplication Project SpringBoot\BackEnd\VoteZy\src\test\resources
+2025-11-05 20:33:29,788 [Worker-38: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-11-05 20:33:29,799 [Worker-38: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-11-05 20:33:29,804 [Worker-38: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\OnlineVotingApplication Project SpringBoot\BackEnd\VoteZy\src\test\resources
+2025-11-05 20:43:57,271 [Worker-40: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-11-05 20:43:57,284 [Worker-40: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-11-05 20:43:57,289 [Worker-40: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\OnlineVotingApplication Project SpringBoot\BackEnd\VoteZy\src\test\resources
+2025-11-05 20:44:04,839 [Worker-40: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-11-05 20:44:04,883 [Worker-40: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-11-05 20:44:04,887 [Worker-40: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\OnlineVotingApplication Project SpringBoot\BackEnd\VoteZy\src\test\resources
+2025-11-05 20:46:15,114 [Worker-46: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-11-05 20:46:15,130 [Worker-46: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-11-05 20:46:15,134 [Worker-46: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\OnlineVotingApplication Project SpringBoot\BackEnd\VoteZy\src\test\resources
+2025-11-05 20:46:46,869 [Stop Help Server] INFO  org.eclipse.jetty.server.Server - Stopped oejs.Server@62b7ee20{STOPPING}[12.0.16,sto=0]
+2025-11-05 20:46:46,881 [Stop Help Server] INFO  o.e.jetty.server.AbstractConnector - Stopped ServerConnector@3cb82b9c{HTTP/1.1, (http/1.1)}{127.0.0.1:0}
+2025-11-06 10:11:34,424 [Worker-7: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2025-11-06 10:38:56,544 [Worker-18: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-11-06 10:38:56,598 [Worker-18: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-11-06 10:38:56,611 [Worker-18: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\OnlineVotingApplication Project SpringBoot\BackEnd\VoteZy\src\test\resources

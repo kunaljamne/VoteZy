@@ -1,10 +1,12 @@
 package in.scalive.votezy.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import in.scalive.votezy.dto.VoteResponseDTO;
 import in.scalive.votezy.entity.Candidate;
 import in.scalive.votezy.entity.Vote;
 import in.scalive.votezy.entity.Voter;
@@ -63,8 +65,19 @@ public class VotingService {
 		return vote;
 	}
 
-	public List<Vote> getAllVotes() {
-		return voteRepository.findAll();
-	}
+	public List<VoteResponseDTO> getAllVotes() {
+		List<Vote> votes = voteRepository.findAll();
+		List<VoteResponseDTO> responseList = new ArrayList<>();
 
+		for (Vote vote : votes) {
+			VoteResponseDTO dto = new VoteResponseDTO();
+			dto.setMessage("Vote record found");
+			dto.setSuccess(true);
+			dto.setVoterId(vote.getVoter().getId());
+			dto.setCandidateId(vote.getCandidate().getId());
+			responseList.add(dto);
+		}
+
+		return responseList;
+	}
 }

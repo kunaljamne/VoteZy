@@ -2,7 +2,6 @@ package in.scalive.votezy.controller;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -18,42 +17,37 @@ import org.springframework.web.bind.annotation.RestController;
 import in.scalive.votezy.dto.VoterRequestDTO;
 import in.scalive.votezy.dto.VoterResponseDTO;
 import in.scalive.votezy.dto.VoterUpdateDTO;
-import in.scalive.votezy.entity.Voter;
 import in.scalive.votezy.service.VoterService;
 import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/api/voters")
 @CrossOrigin // jab frontend se connect krte tab use krte hain
+@RequiredArgsConstructor
 public class VoterController {
-	private VoterService voterService;
+	private final VoterService voterService;
 
-	@Autowired
-	public VoterController(VoterService voterService) {
-		this.voterService = voterService;
-	}
-
-	//without DTO
+	// without DTO
 //	@PostMapping("/register")
 //	public ResponseEntity<Voter> registerVoter(@RequestBody @Valid Voter voter) {
 //		Voter savedVoter = voterService.registerVoter(voter);
 //		return new ResponseEntity<>(savedVoter, HttpStatus.CREATED);
 //	}
-	
-	//with dto
+
+	// with dto
 	@PostMapping("/register")
 	public ResponseEntity<VoterResponseDTO> registerVoter(@RequestBody @Valid VoterRequestDTO voterRequest) {
-	    VoterResponseDTO savedVoter = voterService.registerVoter(voterRequest);
-	    return new ResponseEntity<>(savedVoter, HttpStatus.CREATED);
+		VoterResponseDTO savedVoter = voterService.registerVoter(voterRequest);
+		return new ResponseEntity<>(savedVoter, HttpStatus.CREATED);
 	}
-
 
 	@GetMapping("/{id}")
 	public ResponseEntity<VoterResponseDTO> getVoterById(@PathVariable Long id) {
 		VoterResponseDTO voter = voterService.getVoterById(id);
 		return new ResponseEntity<>(voter, HttpStatus.OK);
 	}
-	
+
 //	@GetMapping("/{id}")
 //	public ResponseEntity<Voter> getVoterById(@PathVariable Long id) {
 //		Voter voter = voterService.getVoterById(id);
@@ -67,24 +61,16 @@ public class VoterController {
 	}
 
 	@PutMapping("/update/{id}")
-	public ResponseEntity<VoterResponseDTO> updateVoter(@PathVariable Long id,@RequestBody VoterUpdateDTO voter){
-		VoterResponseDTO updaVoter=voterService.updateVoter(id, voter);
-		return new ResponseEntity<>(updaVoter,HttpStatus.OK);
+	public ResponseEntity<VoterResponseDTO> updateVoter(@PathVariable Long id, @RequestBody VoterUpdateDTO voter) {
+		VoterResponseDTO updaVoter = voterService.updateVoter(id, voter);
+		return new ResponseEntity<>(updaVoter, HttpStatus.OK);
 	}
-	
+
 	@DeleteMapping("/delete/{id}")
-	public ResponseEntity<String> deleteVoter(@PathVariable Long id){
+	public ResponseEntity<String> deleteVoter(@PathVariable Long id) {
 		voterService.deleteVoter(id);
-		return new ResponseEntity<>("Voter with id:"+id+" has deleted successfully",HttpStatus.OK);
-		
+		return new ResponseEntity<>("Voter with id:" + id + " has deleted successfully", HttpStatus.OK);
+
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 }

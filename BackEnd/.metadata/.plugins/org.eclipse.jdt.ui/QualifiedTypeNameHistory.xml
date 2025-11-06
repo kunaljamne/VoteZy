@@ -50,14 +50,14 @@
     <fullyQualifiedTypeName name="in.scalive.votezy.entity.Voter"/>
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="org.hibernate.id.ResultSetIdentifierConsumer"/>
-    <fullyQualifiedTypeName name="org.springframework.http.ResponseEntity"/>
     <fullyQualifiedTypeName name="in.scalive.votezy.dto.VoterUpdateDTO"/>
     <fullyQualifiedTypeName name="jakarta.validation.constraints.Email"/>
     <fullyQualifiedTypeName name="in.scalive.votezy.dto.VoterResponseDTO"/>
     <fullyQualifiedTypeName name="lombok.Data"/>
-    <fullyQualifiedTypeName name="lombok.RequiredArgsConstructor"/>
-    <fullyQualifiedTypeName name="in.scalive.votezy.dto.CandidateResponseDTO"/>
-    <fullyQualifiedTypeName name="in.scalive.votezy.dto.CandidateRequestDTO"/>
     <fullyQualifiedTypeName name="in.scalive.votezy.mapper.CandidateMapper"/>
+    <fullyQualifiedTypeName name="org.springframework.http.ResponseEntity"/>
+    <fullyQualifiedTypeName name="in.scalive.votezy.dto.CandidateRequestDTO"/>
     <fullyQualifiedTypeName name="in.scalive.votezy.entity.Candidate"/>
+    <fullyQualifiedTypeName name="in.scalive.votezy.dto.CandidateResponseDTO"/>
+    <fullyQualifiedTypeName name="lombok.RequiredArgsConstructor"/>
 </qualifiedTypeNameHistroy>

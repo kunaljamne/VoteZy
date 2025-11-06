@@ -21,48 +21,55 @@ public class CandidateService {
 	private final CandidateRepository candidateRepository;
 	private final CandidateMapper mapper;
 
-	public CandidateResponseDTO addCandidate(CandidateRequestDTO candidate) {
-		Candidate candidate2=mapper.toEntity(candidate);
-		candidateRepository.save(candidate2);
-		return mapper.toResponseDTO(candidate2);
+	// Create candidate
+	public CandidateResponseDTO addCandidate(CandidateRequestDTO dto) {
+		Candidate candidate = mapper.toEntity(dto);
+		Candidate savedCandidate = candidateRepository.save(candidate);
+		return mapper.toResponseDTO(savedCandidate);
 	}
 
+	// Get all candidates
 	public List<CandidateResponseDTO> getAllCandidates() {
-		return mapper.toResponseDTOList(candidateRepository.findAll());
+		List<Candidate> candidates = candidateRepository.findAll();
+		return mapper.toResponseDTOList(candidates);
 	}
 
-	public Candidate getCandidateById(Long id) {
-		Candidate candidate = candidateRepository.findById(id).orElse(null);
-		if (candidate == null) {
-			throw new ResourceNotFoundException("Candidate with id: " + id + " not found");
-		}
-		return candidate;
+	// Get candidate by ID
+	public CandidateResponseDTO getCandidateById(Long id) {
+		Candidate candidate = candidateRepository.findById(id)
+				.orElseThrow(() -> new ResourceNotFoundException("Candidate with id " + id + " not found"));
+		return mapper.toResponseDTO(candidate);
 	}
 
-	public Candidate updateCandidate(Long id, CandidateUpdateDTO candidateDTO) {
-		Candidate candidate = getCandidateById(id);
+	// Update candidate
+	public CandidateResponseDTO updateCandidate(Long id, CandidateUpdateDTO dto) {
+		Candidate candidate = candidateRepository.findById(id)
+				.orElseThrow(() -> new ResourceNotFoundException("Candidate with id " + id + " not found"));
 
-		if (candidateDTO.getName() == null && candidateDTO.getParty() == null) {
-			throw new RuntimeException("Empty Object not allowed for updation");
+		if (dto.getName() != null) {
+			candidate.setName(dto.getName());
 		}
 
-		if (candidateDTO.getName() != null) {
-			candidate.setName(candidateDTO.getName());
+		if (dto.getParty() != null) {
+			candidate.setParty(dto.getParty());
 		}
 
-		if (candidateDTO.getParty() != null) {
-			candidate.setParty(candidateDTO.getParty());
-		}
-		return candidateRepository.save(candidate);
+		Candidate updated = candidateRepository.save(candidate);
+		return mapper.toResponseDTO(updated);
 	}
 
+	// Delete candidate
 	public void deleteCandidate(Long id) {
-		Candidate candidate = getCandidateById(id);
+		Candidate candidate = candidateRepository.findById(id)
+				.orElseThrow(() -> new ResourceNotFoundException("Candidate with id " + id + " not found"));
+
+		// Breaking relationships to avoid FK constraint violations
 		List<Vote> votes = candidate.getVote();
-		for (Vote v : votes) {
-			v.setCandidate(null);
+		for (Vote vote : votes) {
+			vote.setCandidate(null);
 		}
 		candidate.getVote().clear();
+
 		candidateRepository.delete(candidate);
 	}
 }

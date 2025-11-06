@@ -38,9 +38,8 @@ public class VotingController {
 	}
 
 	@GetMapping
-	public ResponseEntity<List<Vote>> getAllVotes() {
-		List<Vote> allVotes = votingService.getAllVotes();
-		return new ResponseEntity<List<Vote>>(allVotes, HttpStatus.OK);
-	}
-
+    public ResponseEntity<List<VoteResponseDTO>> getAllVotes() {
+        List<VoteResponseDTO> allVotes = votingService.getAllVotes();
+        return new ResponseEntity<>(allVotes, HttpStatus.OK);
+    }
 }
