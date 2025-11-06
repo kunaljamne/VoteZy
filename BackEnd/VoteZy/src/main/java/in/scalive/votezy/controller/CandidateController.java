@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 import in.scalive.votezy.dto.CandidateRequestDTO;
 import in.scalive.votezy.dto.CandidateResponseDTO;
 import in.scalive.votezy.dto.CandidateUpdateDTO;
-import in.scalive.votezy.entity.Candidate;
 import in.scalive.votezy.service.CandidateService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -43,15 +42,15 @@ public class CandidateController {
 	}
 
 	@GetMapping("/{id}")
-	public ResponseEntity<Candidate> getCandidateById(@PathVariable Long id) {
-		Candidate candidate = this.candidateService.getCandidateById(id);
-		return new ResponseEntity<>(candidate, HttpStatus.OK);
+	public ResponseEntity<CandidateResponseDTO> getCandidateById(@PathVariable Long id) {
+		CandidateResponseDTO candidate = this.candidateService.getCandidateById(id);
+		return ResponseEntity.ok(candidate);
 	}
 
 	@PutMapping("/update/{id}")
-	public ResponseEntity<Candidate> updateCandidate(@PathVariable Long id,
+	public ResponseEntity<CandidateResponseDTO> updateCandidate(@PathVariable Long id,
 			@Valid @RequestBody CandidateUpdateDTO candidateDTO) {
-		Candidate updateCandidate = candidateService.updateCandidate(id, candidateDTO);
+		CandidateResponseDTO updateCandidate = candidateService.updateCandidate(id, candidateDTO);
 		return ResponseEntity.ok(updateCandidate);
 	}
 

@@ -2,7 +2,6 @@ package in.scalive.votezy.controller;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,18 +15,15 @@ import in.scalive.votezy.dto.ElectionResultResponseDTO;
 import in.scalive.votezy.entity.ElectionResult;
 import in.scalive.votezy.service.ElectionResultService;
 import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/api/election-results")
 @CrossOrigin
+@RequiredArgsConstructor
 public class ElectionResultController {
 
 	private final ElectionResultService electionResultService;
-
-	@Autowired
-	public ElectionResultController(ElectionResultService electionResultService) {
-		this.electionResultService = electionResultService;
-	}
 
 	@PostMapping("/declare")
 	public ResponseEntity<ElectionResultResponseDTO> declareElectionResult(

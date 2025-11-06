@@ -1,0 +1,92 @@
+package in.scalive.votezy.service;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import in.scalive.votezy.dto.VoteResponseDTO;
+import in.scalive.votezy.entity.Candidate;
+import in.scalive.votezy.entity.Vote;
+import in.scalive.votezy.entity.Voter;
+import in.scalive.votezy.exception.ResourceNotFoundException;
+import in.scalive.votezy.exception.VoteNotAllowedException;
+import in.scalive.votezy.repository.CandidateRepository;
+import in.scalive.votezy.repository.VoteRepository;
+import in.scalive.votezy.repository.VoterRepository;
+import jakarta.transaction.Transactional;
+
+@Service
+public class VotingService {
+
+    private VoteRepository voteRepository;
+    private CandidateRepository candidateRepository;
+    private VoterRepository voterRepository;
+
+    @Autowired
+    public VotingService(VoteRepository voteRepository,
+                         CandidateRepository candidateRepository,
+                         VoterRepository voterRepository) {
+        this.voteRepository = voteRepository;
+        this.candidateRepository = candidateRepository;
+        this.voterRepository = voterRepository;
+    }
+
+    @Transactional
+    public VoteResponseDTO castVote(Long voterId, Long candidateId) {
+        // Check voter
+        Voter voter = voterRepository.findById(voterId)
+                .orElseThrow(() -> new ResourceNotFoundException("Voter not found with ID: " + voterId));
+
+        // Check candidate
+        Candidate candidate = candidateRepository.findById(candidateId)
+                .orElseThrow(() -> new ResourceNotFoundException("Candidate not found with ID: " + candidateId));
+
+        // Validate voting
+        if (voter.isHasVoted()) {
+            throw new VoteNotAllowedException("Voter ID: " + voterId + " has already casted a vote.");
+        }
+
+        // Create and save vote
+        Vote vote = new Vote();
+        vote.setVoter(voter);
+        vote.setCandidate(candidate);
+        voteRepository.save(vote);
+
+        // Update candidate vote count
+        candidate.setVoteCount(candidate.getVoteCount() + 1);
+        candidateRepository.save(candidate);
+
+        // Update voter status
+//		voter.setVote(vote);//ya to ham voteRepository mei vote save kain or use karein ya voter mei jane setVote mei vote set karein baat ek hei hain per agar ham
+//		voter mei jake vote set krte hain to hamain Vote aur Voter dono class se @data hatake getter setter all arga and no args constructor anotaio lagana padega safety ke liye
+        voter.setHasVoted(true);
+        voterRepository.save(voter);
+
+        // Return response DTO (service returning DTO = ✅ best practice)
+        VoteResponseDTO response = new VoteResponseDTO();
+        response.setMessage("Vote casted successfully");
+        response.setSuccess(true);
+        response.setVoterId(voterId);
+        response.setCandidateId(candidateId);
+
+        return response;
+    }
+
+    public List<VoteResponseDTO> getAllVotes() {
+        List<Vote> votes = voteRepository.findAll();
+        List<VoteResponseDTO> responseList = new ArrayList<>();
+
+        for (Vote vote : votes) {
+            VoteResponseDTO dto = new VoteResponseDTO();
+            dto.setMessage("Vote record found");
+            dto.setSuccess(true);
+            dto.setVoterId(vote.getVoter().getId());
+            dto.setCandidateId(vote.getCandidate().getId());
+            responseList.add(dto);
+        }
+
+        return responseList;
+    }
+}
